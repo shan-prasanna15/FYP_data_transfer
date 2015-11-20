@@ -73,7 +73,8 @@ public class File_Handler {
 			int record_id=1;
 			while ((line = bufferedReader.readLine()) != null) {
 				//System.out.println(line);
-				String [] split_line= line.split(" ");
+				if (!line.contains("//")){
+				String [] split_line= line.split(" ");			
 				
 				value_stting.append("("
 						+Integer.toString(record_id)+","
@@ -97,11 +98,13 @@ public class File_Handler {
 				value_stting.delete(0, value_stting.length());
 				record_id++;
 			}
+			}
 			fileReader.close();
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 	}
 	
 	
